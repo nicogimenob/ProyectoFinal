@@ -1,0 +1,22 @@
+nav ul {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  padding: 16px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  margin: 0;
+  background-color: #111;
+  color: #eee;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: #1db954;
+}
