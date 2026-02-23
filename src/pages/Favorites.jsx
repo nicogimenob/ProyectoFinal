@@ -3,7 +3,6 @@ import { FavoritesContext } from '../context/FavoritesContext'
 import Card from '../components/Card'
 import { Link } from 'react-router-dom'
 
-// ⚠️ EL "export default" ES LO QUE TE FALTA Y CAUSA EL ERROR
 export default function Favorites() {
   const { favorites } = useContext(FavoritesContext)
 

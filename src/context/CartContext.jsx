@@ -5,7 +5,6 @@ export const CartContext = createContext()
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
 
-  // Añadir al carrito
   const addToCart = (product) => {
     setCart(prev => {
       const exists = prev.find(item => item.id === product.id)
@@ -18,7 +17,6 @@ export const CartProvider = ({ children }) => {
     })
   }
 
-  // NUEVA: Actualizar cantidad (sumar/restar)
   const updateQuantity = (productId, newQuantity) => {
     if (newQuantity < 1) {
       removeFromCart(productId)
@@ -29,15 +27,12 @@ export const CartProvider = ({ children }) => {
     )
   }
 
-  // Eliminar producto
   const removeFromCart = (id) => {
     setCart(prev => prev.filter(item => item.id !== id))
   }
 
-  // Vaciar carrito
   const clearCart = () => setCart([])
 
-  // Calcular total
   const cartTotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
 
   return (

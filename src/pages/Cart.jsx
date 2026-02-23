@@ -1,16 +1,15 @@
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
-import { Link, useNavigate } from 'react-router-dom' // Añadimos useNavigate
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity, clearCart, cartTotal } = useContext(CartContext)
-  const navigate = useNavigate() // Para redirigir al usuario
+  const navigate = useNavigate() 
 
-  // FUNCIÓN QUE FALTABA
   const handleCheckout = () => {
     alert('¡Compra finalizada con éxito! 🎫 Recibirás tus entradas en tu email.')
-    clearCart() // Vaciamos el carrito
-    navigate('/') // Volvemos a la Home
+    clearCart() 
+    navigate('/') 
   }
 
   if (cart.length === 0) {
@@ -40,7 +39,6 @@ export default function Cart() {
             flexWrap: 'wrap',
             gap: '20px'
           }}>
-            {/* Producto e Imagen */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flex: '1 1 300px' }}>
               <img src={item.image} alt={item.name} style={{ width: '80px', height: '60px', objectFit: 'cover', borderRadius: '8px' }} />
               <div>
@@ -49,7 +47,6 @@ export default function Cart() {
               </div>
             </div>
 
-            {/* Selector de Cantidad */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px', backgroundColor: '#111', padding: '5px 15px', borderRadius: '30px' }}>
               <button 
                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -68,7 +65,6 @@ export default function Cart() {
               </button>
             </div>
 
-            {/* Subtotal y Eliminar */}
             <div style={{ textAlign: 'right', flex: '1 1 100px' }}>
               <p style={{ margin: 0, fontSize: '1.2rem', fontWeight: 'bold' }}>{(item.price * item.quantity).toFixed(2)} €</p>
               <button 
@@ -81,7 +77,6 @@ export default function Cart() {
           </div>
         ))}
 
-        {/* Resumen Final */}
         <div style={{ marginTop: '30px', textAlign: 'right', padding: '20px', borderTop: '2px solid var(--neon-purple)' }}>
           <h2 style={{ fontSize: '2rem' }}>TOTAL: <span style={{ color: 'var(--neon-purple)' }}>{cartTotal.toFixed(2)} €</span></h2>
           <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '15px', marginTop: '20px' }}>
@@ -89,7 +84,6 @@ export default function Cart() {
               VACIAR
             </button>
             
-            {/* BOTÓN VINCULADO */}
             <button 
               onClick={handleCheckout} 
               className="neon-button" 

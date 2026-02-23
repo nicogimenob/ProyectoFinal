@@ -1,17 +1,15 @@
-/* Importamos una fuente moderna y contundente para el rollo urbano */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 
 :root {
-  /* Paleta Streetwear / Dark Festival */
-  --bg-black: #050505;        /* Negro casi puro para el fondo */
-  --surface-dark: #120e18;    /* Gris muy oscuro con un toque violeta para las tarjetas */
-  --border-color: #2a1b3d;    /* Morado muy apagado para los bordes */
+  --bg-black: #050505; 
+  --surface-dark: #120e18; 
+  --border-color: #2a1b3d;   
   
-  --neon-purple: #b026ff;     /* Morado eléctrico principal */
-  --deep-purple: #5c0a99;     /* Morado oscuro para sombras o hovers */
+  --neon-purple: #b026ff;
+  --deep-purple: #5c0a99;
   
-  --text-main: #f4f4f5;       /* Blanco roto para no cansar la vista */
-  --text-muted: #a1a1aa;      /* Gris para textos secundarios */
+  --text-main: #f4f4f5;
+  --text-muted: #a1a1aa;
 }
 
 body {
@@ -21,16 +19,12 @@ body {
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   
-  /* Esto crea un efecto de luz de discoteca muy sutil en las esquinas */
   background-image: 
     radial-gradient(circle at top right, #1a0b2e 0%, transparent 50%),
     radial-gradient(circle at bottom left, #1a0b2e 0%, transparent 50%);
   min-height: 100vh;
 }
 
-/* --- CLASES DE ESTILO FESTIVAL --- */
-
-/* Efecto cristal/neon para las tarjetas */
 .festival-card {
   background-color: var(--surface-dark);
   border: 1px solid var(--border-color);
@@ -42,10 +36,9 @@ body {
 .festival-card:hover {
   transform: translateY(-5px);
   border-color: var(--neon-purple);
-  box-shadow: 0 10px 40px rgba(176, 38, 255, 0.15); /* Resplandor morado al pasar el ratón */
+  box-shadow: 0 10px 40px rgba(176, 38, 255, 0.15); 
 }
 
-/* Botones con brillo estilo neón */
 .neon-button {
   background-color: var(--neon-purple);
   color: white;
@@ -61,8 +54,8 @@ body {
 }
 
 .neon-button:hover {
-  background-color: #c452ff; /* Un poco más claro al pasar el ratón */
-  box-shadow: 0 0 25px rgba(176, 38, 255, 0.7); /* El brillo se hace más fuerte */
+  background-color: #c452ff; 
+  box-shadow: 0 0 25px rgba(176, 38, 255, 0.7); 
   transform: scale(1.02);
 }
 
@@ -85,4 +78,17 @@ body {
 .lineup-card:hover {
   transform: translateY(-10px);
   border-color: var(--neon-purple) !important;
+}
+
+.leaflet-tile-pane {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.leaflet-container {
+    background: #120e18 !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

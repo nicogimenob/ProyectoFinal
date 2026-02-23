@@ -8,16 +8,14 @@ export default function Dashboard() {
 
   const handleLogout = () => {
     logout()
-    navigate('/') // Te devuelve al inicio al cerrar sesión
+    navigate('/') 
   }
 
-  // Por si acaso la página carga un microsegundo antes que el usuario
   if (!user) return null
 
   return (
     <div style={{ padding: '40px 20px', color: 'white', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
       
-      {/* AQUÍ ESTABA EL ERROR: Ahora usamos user.name en vez de user a secas */}
       <h1 style={{ fontSize: '2.5rem', marginBottom: '10px' }}>
         ¡Bienvenido a tu Zona VIP, <span style={{ color: 'var(--neon-purple)' }}>{user.name}</span>! 🎸
       </h1>

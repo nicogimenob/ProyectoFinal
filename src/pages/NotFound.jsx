@@ -10,11 +10,9 @@ export default function NotFound() {
       alignItems: 'center', 
       textAlign: 'center',
       padding: '20px',
-      // Un fondo oscuro y caótico para darle rollo
       background: 'radial-gradient(circle at center, #1a0f2e 0%, var(--bg-black) 100%)'
     }}>
       
-      {/* El gran 404 con efecto neón roto */}
       <h1 style={{ 
         fontSize: 'clamp(6rem, 15vw, 10rem)', 
         margin: '0', 
@@ -48,7 +46,6 @@ export default function NotFound() {
         Parece que te has perdido en el moshpit. La carpa que buscas ya cerró o nunca existió en este festival.
       </p>
 
-      {/* Botón para volver al Home */}
       <Link to="/" className="neon-button" style={{ 
         textDecoration: 'none', 
         padding: '15px 40px', 

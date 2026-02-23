@@ -1,19 +1,15 @@
 import { useState, useEffect } from 'react'
 
 export default function About() {
-  // Estados para manejar los datos de la API, la carga y los posibles errores
   const [team, setTeam] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  // Roles ficticios para darle más realismo al festival
   const roles = ["Director del Festival", "Jefa de Sonido", "Coordinador VIP", "Responsable de Seguridad"]
 
-  // useEffect se ejecuta automáticamente cuando el usuario entra en esta página
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        // Hacemos el fetch a la Random User API pidiendo 4 resultados
         const response = await fetch('https://randomuser.me/api/?results=4')
         
         if (!response.ok) {
@@ -21,21 +17,20 @@ export default function About() {
         }
 
         const data = await response.json()
-        setTeam(data.results) // Guardamos los usuarios en el estado
+        setTeam(data.results)
       } catch (err) {
-        setError(err.message) // Si hay error, lo guardamos
+        setError(err.message)
       } finally {
-        setLoading(false) // Quitamos el estado de carga
+        setLoading(false)
       }
     }
 
     fetchTeam()
-  }, []) // El array vacío asegura que esto solo se ejecute 1 vez al cargar la página
+  }, [])
 
   return (
     <div style={{ padding: '40px 20px', color: 'white', maxWidth: '1000px', margin: '0 auto' }}>
       
-      {/* SECCIÓN 1: HISTORIA DEL FESTIVAL */}
       <section style={{ textAlign: 'center', marginBottom: '60px' }}>
         <h1 style={{ fontSize: '3rem', margin: '0 0 20px 0', textTransform: 'uppercase', letterSpacing: '2px' }}>
           Sobre <span style={{ color: 'var(--neon-purple)' }}>Urban Fest</span>
@@ -46,22 +41,17 @@ export default function About() {
         </p>
       </section>
 
-      {/* SECCIÓN 2: NUESTRO EQUIPO (El Fetch) */}
       <section>
         <h2 style={{ fontSize: '2rem', borderBottom: '2px solid var(--neon-purple)', paddingBottom: '10px', marginBottom: '30px' }}>
           Conoce a nuestro equipo
         </h2>
 
-        {/* Manejo de estados de la API */}
         {loading && <p style={{ color: 'var(--neon-purple)', fontSize: '1.2rem', textAlign: 'center' }}>Cargando personal del festival...</p>}
         {error && <p style={{ color: '#ff4d4d', textAlign: 'center' }}>Error: {error}</p>}
 
-        {/* Grid para pintar los usuarios cuando ya han cargado */}
-        {/* Grid para pintar los usuarios cuando ya han cargado */}
         {!loading && !error && (
           <div style={{ 
             display: 'grid', 
-            /* LA MAGIA ESTÁ AQUÍ: Fuerza 4 columnas proporcionales siempre */
             gridTemplateColumns: 'repeat(4, 1fr)', 
             gap: '15px' 
           }}>
@@ -76,17 +66,16 @@ export default function About() {
                   flexDirection: 'column',
                   alignItems: 'center',
                   gap: '10px',
-                  minWidth: 0 /* Súper importante para que el texto encoga sin romper la caja */
+                  minWidth: 0
                 }}
               >
-                {/* Foto del empleado adaptable */}
                 <img 
                   src={person.picture.large} 
                   alt={`${person.name.first} ${person.name.last}`} 
                   style={{
-                    width: '100%', // Se adapta al ancho de su contenedor
-                    maxWidth: '100px', // Pero nunca será más grande que esto
-                    aspectRatio: '1 / 1', // Mantiene la forma cuadrada para que el radius haga un círculo perfecto
+                    width: '100%',
+                    maxWidth: '100px',
+                    aspectRatio: '1 / 1',
                     borderRadius: '50%',
                     objectFit: 'cover',
                     border: '3px solid var(--neon-purple)',
@@ -94,7 +83,6 @@ export default function About() {
                   }}
                 />
                 
-                {/* Datos del empleado */}
                 <div style={{ width: '100%', wordBreak: 'break-word' }}>
                   <h3 style={{ margin: '0 0 5px 0', fontSize: 'clamp(0.8rem, 1.5vw, 1.1rem)' }}>
                     {person.name.first} {person.name.last}

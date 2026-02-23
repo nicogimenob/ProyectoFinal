@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom'
 export default function Register() {
   const navigate = useNavigate()
   
-  // Estado para guardar los datos del formulario
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,10 +11,8 @@ export default function Register() {
     confirmPassword: ''
   })
   
-  // Estado para mostrar errores (ej: contraseñas no coinciden)
   const [error, setError] = useState('')
 
-  // Manejador de cambios en los inputs
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -23,19 +20,15 @@ export default function Register() {
     })
   }
 
-  // Manejador del envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault()
     setError('')
 
-    // Validación básica: comprobar que las contraseñas son iguales
     if (formData.password !== formData.confirmPassword) {
       setError('Las contraseñas no coinciden. ¡Revisa bien! 🕵️‍♂️')
       return
     }
 
-    // Aquí (en un futuro) enviarías los datos a una API real.
-    // Por ahora, simulamos el registro con éxito y enviamos al usuario al Login.
     alert('¡Cuenta creada con éxito! Ahora puedes iniciar sesión.')
     navigate('/login')
   }

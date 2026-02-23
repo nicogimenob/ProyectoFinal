@@ -7,7 +7,7 @@ export default function Footer() {
       borderTop: '2px solid var(--neon-purple)',
       color: '#aaa',
       padding: '60px 20px 20px 20px',
-      marginTop: 'auto' // Esto ayuda a empujarlo siempre hacia abajo
+      marginTop: 'auto'
     }}>
       <div style={{ 
         maxWidth: '1200px', 
@@ -18,7 +18,6 @@ export default function Footer() {
         marginBottom: '40px'
       }}>
         
-        {/* Columna 1: Marca y descripción */}
         <div>
           <h3 style={{ color: 'white', fontSize: '1.8rem', margin: '0 0 15px 0', textTransform: 'uppercase', letterSpacing: '2px' }}>
             Urban Fest <span style={{ color: 'var(--neon-purple)' }}>'26</span>
@@ -28,7 +27,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Columna 2: Enlaces Rápidos */}
         <div>
           <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '20px', textTransform: 'uppercase' }}>Explorar</h4>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -38,7 +36,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Columna 3: Usuario */}
         <div>
           <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '20px', textTransform: 'uppercase' }}>Tu Cuenta</h4>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -48,7 +45,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Columna 4: Redes Sociales */}
         <div>
           <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '20px', textTransform: 'uppercase' }}>Síguenos</h4>
           <div style={{ display: 'flex', gap: '15px', fontSize: '1.5rem' }}>
@@ -61,7 +57,6 @@ export default function Footer() {
 
       </div>
 
-      {/* Derechos de autor */}
       <div style={{ 
         borderTop: '1px solid #333', 
         paddingTop: '20px', 

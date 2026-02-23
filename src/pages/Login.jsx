@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext'
 
 export default function Login() {
   const navigate = useNavigate()
-  const { login } = useContext(AuthContext) // Traemos la función de login del contexto global
+  const { login } = useContext(AuthContext) 
   
   const [formData, setFormData] = useState({ email: '', password: '' })
 
@@ -18,14 +18,13 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault()
     
-    // Simulamos el login exitoso creando un objeto de usuario
     const fakeUser = {
-      name: formData.email.split('@')[0], // Inventamos un nombre basado en su email
+      name: formData.email.split('@')[0],
       email: formData.email
     }
 
-    login(fakeUser) // Guardamos el usuario a nivel global
-    navigate('/dashboard') // Lo mandamos a su panel de control
+    login(fakeUser) 
+    navigate('/dashboard')
   }
 
   return (

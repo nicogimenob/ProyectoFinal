@@ -44,7 +44,7 @@ export const products = [
     name: "Camiseta Oficial Urban Fest",
     price: 35,
     description: "Camiseta oversize exclusiva del festival. Edición limitada.",
-    image: "/public/urbanfest-camiseta.png",
+    image: "/urbanfest-camiseta.png",
     category: "Merchandising"
   }
 ]

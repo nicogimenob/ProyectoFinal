@@ -4,20 +4,17 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 export default function Home() {
-  // 1. REFERENCIA Y ANIMACIÓN GSAP PARA EL CARRUSEL
   const carouselRef = useRef()
 
   useGSAP(() => {
-    // Animamos el carrusel para que se mueva hacia la izquierda infinitamente
     gsap.to(carouselRef.current, {
-      xPercent: -50, // Se mueve el 50% de su anchura total (que contiene los elementos duplicados)
-      ease: "none",  // Movimiento lineal, sin acelerar ni frenar
-      duration: 25,  // Segundos que tarda en dar una vuelta (cámbialo para que vaya más rápido o lento)
-      repeat: -1     // Bucle infinito
+      xPercent: -50, 
+      ease: "none",
+      duration: 25,
+      repeat: -1 
     })
   })
 
-  // 2. TUS IMÁGENES (Ajusta los nombres a como los hayas guardado en public/artists/)
   const carouselImages = [
     "https://i.scdn.co/image/ab6761610000e5eb8d54cd36e5e639bf4d4f5583",
     "https://i.scdn.co/image/ab6761610000e5eb81f47f44084e0a09b5f0fa13",
@@ -26,10 +23,8 @@ export default function Home() {
     "https://i.scdn.co/image/ab6761610000e5ebc9961730f0c082259ac0c22a",
     "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843bf562a618ea6dc967551db1"
   ]
-  // Duplicamos el array para que el efecto infinito sea fluido y no dé "saltos"
   const duplicatedImages = [...carouselImages, ...carouselImages]
 
-  // 3. CARTEL POR DÍAS
   const lineup = [
     {
       day: "Viernes 12 - Opening",
@@ -59,7 +54,6 @@ export default function Home() {
 
   return (
     <div>
-      {/* SECCIÓN 1: HERO */}
       <section style={{ 
         height: '80vh', 
         display: 'flex', 
@@ -84,24 +78,22 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* SECCIÓN 2: CARRUSEL GSAP DE ARTISTAS */}
       <section style={{ 
         padding: '40px 0', 
         backgroundColor: 'var(--surface-dark)', 
-        overflow: 'hidden', /* Oculta lo que se sale por los lados */
+        overflow: 'hidden',
         borderBottom: '1px solid #333'
       }}>
         <h3 style={{ textAlign: 'center', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '3px', marginBottom: '30px' }}>
           Artistas Confirmados
         </h3>
         
-        {/* Contenedor animado por GSAP */}
         <div 
           ref={carouselRef} 
           style={{ 
             display: 'flex', 
             gap: '20px', 
-            width: 'max-content' // Vital para que mida todo lo que ocupan las imágenes juntas
+            width: 'max-content'
           }}
         >
           {duplicatedImages.map((src, index) => (
@@ -115,16 +107,14 @@ export default function Home() {
                 objectFit: 'cover',
                 borderRadius: '12px',
                 boxShadow: '0 4px 15px rgba(0,0,0,0.6)',
-                border: '2px solid transparent', // Prepara el borde para un posible efecto hover si lo deseas
+                border: '2px solid transparent',
               }}
-              /* Si la imagen falla al cargar, ponemos un placeholder morado provisional */
               onError={(e) => { e.target.src = "https://via.placeholder.com/250x350/120e18/b026ff?text=ARTISTA" }}
             />
           ))}
         </div>
       </section>
 
-      {/* SECCIÓN 3: CARTEL POR DÍAS Y ESCENARIOS */}
       <section style={{ padding: '80px 20px', maxWidth: '1400px', margin: '0 auto' }}>
         <h2 style={{ textAlign: 'center', color: 'white', fontSize: '3.5rem', textTransform: 'uppercase', marginBottom: '60px', letterSpacing: '2px' }}>
           Line-Up <span style={{ color: 'var(--neon-purple)' }}>Oficial</span>
@@ -161,7 +151,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECCIÓN 4: HIGHLIGHTS RÁPIDOS */}
       <section style={{ backgroundColor: 'var(--neon-purple)', padding: '40px 20px', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '20px', color: 'white', textAlign: 'center', fontWeight: 'bold', fontSize: '1.2rem', textTransform: 'uppercase' }}>
         <div>🎵 +30 Artistas TOP</div>
         <div>🎪 3 Escenarios Simultáneos</div>
