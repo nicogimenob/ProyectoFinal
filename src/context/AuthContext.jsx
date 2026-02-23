@@ -1,16 +1,24 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
 
 export const AuthContext = createContext()
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null)
+  // Inicializamos el estado mirando si ya hay un usuario guardado en el navegador (localStorage)
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user')
+    return savedUser ? JSON.parse(savedUser) : null
+  })
 
-  function login(email) {
-    setUser({ email })
+  // Función para hacer login (simulado)
+  const login = (userData) => {
+    setUser(userData)
+    localStorage.setItem('user', JSON.stringify(userData)) // Lo guarda para que no se borre al recargar
   }
 
-  function logout() {
+  // Función para cerrar sesión
+  const logout = () => {
     setUser(null)
+    localStorage.removeItem('user')
   }
 
   return (

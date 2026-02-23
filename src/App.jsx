@@ -13,6 +13,8 @@ import Dashboard from './pages/Dashboard'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
+import Register from './pages/Register'
+import Footer from './components/Footer'
 import { AuthProvider } from './context/AuthContext'
 
 function App() {
@@ -22,23 +24,23 @@ function App() {
           <CartProvider>
             <>
               <Navbar />
-
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/explore" element={<Explore />} />
-                <Route path="/product/:id" element={<Detail />} />
-                <Route path="/login" element={<Login />} />
-            {/*    <Route path="/favorites" element={<Favorites />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/dashboard" element={<Dashboard />} />*/}
-                <Route path="/about" element={<About />} />
-                <Route path="*" element={<NotFound />} />
-                <Route element={<ProtectedRoute />}>
-                  <Route path="/favorites" element={<Favorites />} />
-                  <Route path="/cart" element={<Cart />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                </Route>
-              </Routes>
+              <div style={{ minHeight: '80vh' }}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/explore" element={<Explore />} />
+                  <Route path="/product/:id" element={<Detail />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="*" element={<NotFound />} />
+                  <Route element={<ProtectedRoute />}>
+                    <Route path="/favorites" element={<Favorites />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                  </Route>
+                </Routes>
+              </div>
+              <Footer />
             </>
           </CartProvider>
       </FavoritesProvider>

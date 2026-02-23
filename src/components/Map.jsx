@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export default function Map() {
-  const position = [40.4168, -3.7038] // Madrid (ficticio)
+  const position = [41.6186, -0.9230] 
 
   return (
     <MapContainer

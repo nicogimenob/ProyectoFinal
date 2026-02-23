@@ -1,22 +1,88 @@
-nav ul {
-  display: flex;
-  gap: 16px;
-  list-style: none;
-  padding: 16px;
-}
+/* Importamos una fuente moderna y contundente para el rollo urbano */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 
-nav a {
-  text-decoration: none;
-  color: white;
+:root {
+  /* Paleta Streetwear / Dark Festival */
+  --bg-black: #050505;        /* Negro casi puro para el fondo */
+  --surface-dark: #120e18;    /* Gris muy oscuro con un toque violeta para las tarjetas */
+  --border-color: #2a1b3d;    /* Morado muy apagado para los bordes */
+  
+  --neon-purple: #b026ff;     /* Morado eléctrico principal */
+  --deep-purple: #5c0a99;     /* Morado oscuro para sombras o hovers */
+  
+  --text-main: #f4f4f5;       /* Blanco roto para no cansar la vista */
+  --text-muted: #a1a1aa;      /* Gris para textos secundarios */
 }
 
 body {
   margin: 0;
-  background-color: #111;
-  color: #eee;
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-black);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  
+  /* Esto crea un efecto de luz de discoteca muy sutil en las esquinas */
+  background-image: 
+    radial-gradient(circle at top right, #1a0b2e 0%, transparent 50%),
+    radial-gradient(circle at bottom left, #1a0b2e 0%, transparent 50%);
+  min-height: 100vh;
 }
 
-a {
-  color: #1db954;
+/* --- CLASES DE ESTILO FESTIVAL --- */
+
+/* Efecto cristal/neon para las tarjetas */
+.festival-card {
+  background-color: var(--surface-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.festival-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--neon-purple);
+  box-shadow: 0 10px 40px rgba(176, 38, 255, 0.15); /* Resplandor morado al pasar el ratón */
+}
+
+/* Botones con brillo estilo neón */
+.neon-button {
+  background-color: var(--neon-purple);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(176, 38, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+  background-color: #c452ff; /* Un poco más claro al pasar el ratón */
+  box-shadow: 0 0 25px rgba(176, 38, 255, 0.7); /* El brillo se hace más fuerte */
+  transform: scale(1.02);
+}
+
+.outline-button {
+  background-color: transparent;
+  color: var(--neon-purple);
+  border: 2px solid var(--neon-purple);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.outline-button:hover {
+  background-color: rgba(176, 38, 255, 0.1);
+  box-shadow: 0 0 15px rgba(176, 38, 255, 0.2);
+}
+
+.lineup-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--neon-purple) !important;
 }
